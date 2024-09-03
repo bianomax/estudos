@@ -1,8 +1,8 @@
 let nomeJogador = prompt('Informe o nome do jogador: ');
 alert('Seja bem vindo ' + nomeJogador + ' ao jogo do número secreto!!');
 let numeroSecreto = 3;
-
-let numeroAposta 
+let numeroAposta; 
+let tentativas = 1;
 
 //enquanto
 while(numeroAposta != numeroSecreto){
@@ -11,15 +11,22 @@ while(numeroAposta != numeroSecreto){
     //Se o numero secreto for igual ao numero aposta.
     //Mostraremos a uma mensagem informando ao acerto.
     if(numeroSecreto == numeroAposta){
-        console.log(`${nomeJogador} você acertou o numero secreto ${numeroSecreto}`);
+        break;
     }else{
         //Senão mostramos uma mensagem de erro
         //console.log(`${nomeJogador} você errou o numero secreto !!!`);
         if(numeroSecreto > numeroAposta){
-            console.log(`O numero secreto é menor que ${numeroAposta}`);
+            alert(`O numero secreto é maior que ${numeroAposta}`);
         }else{
-            console.log(`O numero secreto é maior que ${numeroAposta}`);
+            alert(`O numero secreto é menor que ${numeroAposta}`);
         }
+
+        tentativas++;
     }
 }
 
+if(tentativas > 1){
+    alert(`${nomeJogador} você acertou o numero secreto ${numeroSecreto} com ${tentativas} tentivas`);
+}else{
+    alert(`${nomeJogador} você acertou o numero secreto ${numeroSecreto} com ${tentativas} tentiva`);
+}
